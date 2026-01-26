@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+//user model
+model User {
+  id        Int      @id @default(autoincrement()) @map("user_id")
+  email     String   @unique  @map("email")
+  phoneNo     String?  @unique  @map("phone_no")
+  password  String
+  firstName String? @map("first_name")
+  lastName  String? @map("last_name")
+  role      String   @default("USER")
+  imgUrl    String?  @map("img_url")
+  department String?
+  isDeleted Boolean  @default(false) @map("is_deleted")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  vehicles  Vehicle[]
+  attendances Attendance[]
+  
+}
+
+//vehicle model
+
+model Vehicle {
+  id            Int      @id @default(autoincrement()) @map("vehicle_id")
+  plateNo  String   @unique @map("plate_no")
+  vehicleType   String   @default("CAR")@map("vehicle_type")  
+  color         String   
+  userId      Int      @map("user_id")
+  user        User     @relation(fields: [userId], references: [id])
+  isDeleted     Boolean  @default(false) @map("is_deleted")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  attendances   Attendance[]
+}
+
+//attendance model
+model Attendance {
+  id         Int      @id @default(autoincrement()) @map("attendance_id")
+  vehicleId  Int      @map("vehicle_id")
+  userId     Int      @map("user_id")
+  entryTime  DateTime @default(now()) @map("entry_time")
+  exitTime   DateTime? @map("exit_time")
+  gateId     Int?     @map("gate_id")
+  ocrPlate   String?  @map("ocr_plate")
+  confidenceScore Float? @map("confidence_score")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
+  user       User     @relation(fields: [userId], references: [id])
+}
+
+//system config model
+
+model SystemConfig {
+  id          Int      @id @default(autoincrement()) @map("config_id")
+  key         String   @unique @map("config_key")
+  value       String   @map("config_value")
+  description String?  @map("description")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+}
+//unregistered vehicle model
+model UnregisteredVehicle {
+  id          Int      @id @default(autoincrement()) @map("unregistered_vehicle_id")
+  plateNo     String   @map("plate_no")
+  vehicleType String   @map("vehicle_type")
+  color       String?  @map("color")
+  ocrPlate    String   @map("ocr_plate")
+  confidenceScore Float @map("confidence_score")
+  entryTime   DateTime @default(now()) @map("entry_time")
+  gateId      Int?     @map("gate_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+}
