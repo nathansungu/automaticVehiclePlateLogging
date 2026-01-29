@@ -1,7 +1,7 @@
 import prisma from "../prismaInstance";
 //record attendance
 
-export const recordAttendance = async (plateNo:string, confidenceScore: number)=> {
+export const recordAttendanceService = async (plateNo:string, confidenceScore: number)=> {
     const isRegistered = await prisma.vehicle.findUnique({
         where: { plateNo }
     });
@@ -23,7 +23,7 @@ export const recordAttendance = async (plateNo:string, confidenceScore: number)=
 
 //get all attendance records
 //by user id or vehicle id
-export const getAllAttendanceRecords = async (userId?: number, vehicleId?: number) => {
+export const getAllAttendanceRecordsService = async (userId?: number, vehicleId?: number) => {
     const attendanceRecords = await prisma.attendance.findMany({
         where: {
             ...(userId && { userId }),
@@ -42,7 +42,7 @@ export const getAllAttendanceRecords = async (userId?: number, vehicleId?: numbe
 };
 
 // get attendance by department
-export const getAttendanceByDepartment = async (departmentId: number) => {
+export const getAttendanceByDepartmentService = async (departmentId: number) => {
     const attendanceRecords = await prisma.attendance.findMany({
         where: {
             user: {
