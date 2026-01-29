@@ -1,11 +1,13 @@
 import expres from "express";
 import cookieparser from "cookie-parser"
 import cors from "cors";
+import router from "./src/routes/index";
 
 const app = expres();
 app.use(expres.json());
-app.use("cookie-parser"());
-app.use("cors"());
+app.use(cookieparser());
+app.use(cors());
+app.use("/api", router);
 
 const port = process.env.PORT || 4000;
 app.listen(port, (e) => {
