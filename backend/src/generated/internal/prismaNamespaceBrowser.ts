@@ -55,7 +55,8 @@ export const ModelName = {
   Vehicle: 'Vehicle',
   Attendance: 'Attendance',
   SystemConfig: 'SystemConfig',
-  UnregisteredVehicle: 'UnregisteredVehicle'
+  UnregisteredVehicle: 'UnregisteredVehicle',
+  Department: 'Department'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -82,7 +83,8 @@ export const UserScalarFieldEnum = {
   firstName: 'firstName',
   lastName: 'lastName',
   role: 'role',
-  department: 'department',
+  imgUrl: 'imgUrl',
+  departmentId: 'departmentId',
   isDeleted: 'isDeleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -112,7 +114,6 @@ export const AttendanceScalarFieldEnum = {
   entryTime: 'entryTime',
   exitTime: 'exitTime',
   gateId: 'gateId',
-  ocrPlate: 'ocrPlate',
   confidenceScore: 'confidenceScore',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -138,7 +139,6 @@ export const UnregisteredVehicleScalarFieldEnum = {
   plateNo: 'plateNo',
   vehicleType: 'vehicleType',
   color: 'color',
-  ocrPlate: 'ocrPlate',
   confidenceScore: 'confidenceScore',
   entryTime: 'entryTime',
   gateId: 'gateId',
@@ -147,6 +147,16 @@ export const UnregisteredVehicleScalarFieldEnum = {
 } as const
 
 export type UnregisteredVehicleScalarFieldEnum = (typeof UnregisteredVehicleScalarFieldEnum)[keyof typeof UnregisteredVehicleScalarFieldEnum]
+
+
+export const DepartmentScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DepartmentScalarFieldEnum = (typeof DepartmentScalarFieldEnum)[keyof typeof DepartmentScalarFieldEnum]
 
 
 export const SortOrder = {

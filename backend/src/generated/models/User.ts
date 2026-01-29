@@ -28,10 +28,12 @@ export type AggregateUser = {
 
 export type UserAvgAggregateOutputType = {
   id: number | null
+  departmentId: number | null
 }
 
 export type UserSumAggregateOutputType = {
   id: number | null
+  departmentId: number | null
 }
 
 export type UserMinAggregateOutputType = {
@@ -42,7 +44,8 @@ export type UserMinAggregateOutputType = {
   firstName: string | null
   lastName: string | null
   role: string | null
-  department: string | null
+  imgUrl: string | null
+  departmentId: number | null
   isDeleted: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -56,7 +59,8 @@ export type UserMaxAggregateOutputType = {
   firstName: string | null
   lastName: string | null
   role: string | null
-  department: string | null
+  imgUrl: string | null
+  departmentId: number | null
   isDeleted: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -70,7 +74,8 @@ export type UserCountAggregateOutputType = {
   firstName: number
   lastName: number
   role: number
-  department: number
+  imgUrl: number
+  departmentId: number
   isDeleted: number
   createdAt: number
   updatedAt: number
@@ -80,10 +85,12 @@ export type UserCountAggregateOutputType = {
 
 export type UserAvgAggregateInputType = {
   id?: true
+  departmentId?: true
 }
 
 export type UserSumAggregateInputType = {
   id?: true
+  departmentId?: true
 }
 
 export type UserMinAggregateInputType = {
@@ -94,7 +101,8 @@ export type UserMinAggregateInputType = {
   firstName?: true
   lastName?: true
   role?: true
-  department?: true
+  imgUrl?: true
+  departmentId?: true
   isDeleted?: true
   createdAt?: true
   updatedAt?: true
@@ -108,7 +116,8 @@ export type UserMaxAggregateInputType = {
   firstName?: true
   lastName?: true
   role?: true
-  department?: true
+  imgUrl?: true
+  departmentId?: true
   isDeleted?: true
   createdAt?: true
   updatedAt?: true
@@ -122,7 +131,8 @@ export type UserCountAggregateInputType = {
   firstName?: true
   lastName?: true
   role?: true
-  department?: true
+  imgUrl?: true
+  departmentId?: true
   isDeleted?: true
   createdAt?: true
   updatedAt?: true
@@ -223,7 +233,8 @@ export type UserGroupByOutputType = {
   firstName: string | null
   lastName: string | null
   role: string
-  department: string | null
+  imgUrl: string | null
+  departmentId: number | null
   isDeleted: boolean
   createdAt: Date
   updatedAt: Date
@@ -260,10 +271,12 @@ export type UserWhereInput = {
   firstName?: Prisma.StringNullableFilter<"User"> | string | null
   lastName?: Prisma.StringNullableFilter<"User"> | string | null
   role?: Prisma.StringFilter<"User"> | string
-  department?: Prisma.StringNullableFilter<"User"> | string | null
+  imgUrl?: Prisma.StringNullableFilter<"User"> | string | null
+  departmentId?: Prisma.IntNullableFilter<"User"> | number | null
   isDeleted?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  department?: Prisma.XOR<Prisma.DepartmentNullableScalarRelationFilter, Prisma.DepartmentWhereInput> | null
   vehicles?: Prisma.VehicleListRelationFilter
   attendances?: Prisma.AttendanceListRelationFilter
 }
@@ -276,10 +289,12 @@ export type UserOrderByWithRelationInput = {
   firstName?: Prisma.SortOrderInput | Prisma.SortOrder
   lastName?: Prisma.SortOrderInput | Prisma.SortOrder
   role?: Prisma.SortOrder
-  department?: Prisma.SortOrderInput | Prisma.SortOrder
+  imgUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  departmentId?: Prisma.SortOrderInput | Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  department?: Prisma.DepartmentOrderByWithRelationInput
   vehicles?: Prisma.VehicleOrderByRelationAggregateInput
   attendances?: Prisma.AttendanceOrderByRelationAggregateInput
 }
@@ -295,10 +310,12 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   firstName?: Prisma.StringNullableFilter<"User"> | string | null
   lastName?: Prisma.StringNullableFilter<"User"> | string | null
   role?: Prisma.StringFilter<"User"> | string
-  department?: Prisma.StringNullableFilter<"User"> | string | null
+  imgUrl?: Prisma.StringNullableFilter<"User"> | string | null
+  departmentId?: Prisma.IntNullableFilter<"User"> | number | null
   isDeleted?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  department?: Prisma.XOR<Prisma.DepartmentNullableScalarRelationFilter, Prisma.DepartmentWhereInput> | null
   vehicles?: Prisma.VehicleListRelationFilter
   attendances?: Prisma.AttendanceListRelationFilter
 }, "id" | "email" | "phoneNo">
@@ -311,7 +328,8 @@ export type UserOrderByWithAggregationInput = {
   firstName?: Prisma.SortOrderInput | Prisma.SortOrder
   lastName?: Prisma.SortOrderInput | Prisma.SortOrder
   role?: Prisma.SortOrder
-  department?: Prisma.SortOrderInput | Prisma.SortOrder
+  imgUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  departmentId?: Prisma.SortOrderInput | Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -333,7 +351,8 @@ export type UserScalarWhereWithAggregatesInput = {
   firstName?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   lastName?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   role?: Prisma.StringWithAggregatesFilter<"User"> | string
-  department?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  imgUrl?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  departmentId?: Prisma.IntNullableWithAggregatesFilter<"User"> | number | null
   isDeleted?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -346,10 +365,11 @@ export type UserCreateInput = {
   firstName?: string | null
   lastName?: string | null
   role?: string
-  department?: string | null
+  imgUrl?: string | null
   isDeleted?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  department?: Prisma.DepartmentCreateNestedOneWithoutUsersInput
   vehicles?: Prisma.VehicleCreateNestedManyWithoutUserInput
   attendances?: Prisma.AttendanceCreateNestedManyWithoutUserInput
 }
@@ -362,7 +382,8 @@ export type UserUncheckedCreateInput = {
   firstName?: string | null
   lastName?: string | null
   role?: string
-  department?: string | null
+  imgUrl?: string | null
+  departmentId?: number | null
   isDeleted?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -377,10 +398,11 @@ export type UserUpdateInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.StringFieldUpdateOperationsInput | string
-  department?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  department?: Prisma.DepartmentUpdateOneWithoutUsersNestedInput
   vehicles?: Prisma.VehicleUpdateManyWithoutUserNestedInput
   attendances?: Prisma.AttendanceUpdateManyWithoutUserNestedInput
 }
@@ -393,7 +415,8 @@ export type UserUncheckedUpdateInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.StringFieldUpdateOperationsInput | string
-  department?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  departmentId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -409,7 +432,8 @@ export type UserCreateManyInput = {
   firstName?: string | null
   lastName?: string | null
   role?: string
-  department?: string | null
+  imgUrl?: string | null
+  departmentId?: number | null
   isDeleted?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -422,7 +446,7 @@ export type UserUpdateManyMutationInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.StringFieldUpdateOperationsInput | string
-  department?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -436,7 +460,8 @@ export type UserUncheckedUpdateManyInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.StringFieldUpdateOperationsInput | string
-  department?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  departmentId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -450,7 +475,8 @@ export type UserCountOrderByAggregateInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  department?: Prisma.SortOrder
+  imgUrl?: Prisma.SortOrder
+  departmentId?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -458,6 +484,7 @@ export type UserCountOrderByAggregateInput = {
 
 export type UserAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  departmentId?: Prisma.SortOrder
 }
 
 export type UserMaxOrderByAggregateInput = {
@@ -468,7 +495,8 @@ export type UserMaxOrderByAggregateInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  department?: Prisma.SortOrder
+  imgUrl?: Prisma.SortOrder
+  departmentId?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -482,7 +510,8 @@ export type UserMinOrderByAggregateInput = {
   firstName?: Prisma.SortOrder
   lastName?: Prisma.SortOrder
   role?: Prisma.SortOrder
-  department?: Prisma.SortOrder
+  imgUrl?: Prisma.SortOrder
+  departmentId?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -490,11 +519,22 @@ export type UserMinOrderByAggregateInput = {
 
 export type UserSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  departmentId?: Prisma.SortOrder
 }
 
 export type UserScalarRelationFilter = {
   is?: Prisma.UserWhereInput
   isNot?: Prisma.UserWhereInput
+}
+
+export type UserListRelationFilter = {
+  every?: Prisma.UserWhereInput
+  some?: Prisma.UserWhereInput
+  none?: Prisma.UserWhereInput
+}
+
+export type UserOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
@@ -515,6 +555,14 @@ export type DateTimeFieldUpdateOperationsInput = {
 
 export type IntFieldUpdateOperationsInput = {
   set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
   increment?: number
   decrement?: number
   multiply?: number
@@ -549,6 +597,48 @@ export type UserUpdateOneRequiredWithoutAttendancesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAttendancesInput, Prisma.UserUpdateWithoutAttendancesInput>, Prisma.UserUncheckedUpdateWithoutAttendancesInput>
 }
 
+export type UserCreateNestedManyWithoutDepartmentInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDepartmentInput, Prisma.UserUncheckedCreateWithoutDepartmentInput> | Prisma.UserCreateWithoutDepartmentInput[] | Prisma.UserUncheckedCreateWithoutDepartmentInput[]
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDepartmentInput | Prisma.UserCreateOrConnectWithoutDepartmentInput[]
+  createMany?: Prisma.UserCreateManyDepartmentInputEnvelope
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+}
+
+export type UserUncheckedCreateNestedManyWithoutDepartmentInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDepartmentInput, Prisma.UserUncheckedCreateWithoutDepartmentInput> | Prisma.UserCreateWithoutDepartmentInput[] | Prisma.UserUncheckedCreateWithoutDepartmentInput[]
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDepartmentInput | Prisma.UserCreateOrConnectWithoutDepartmentInput[]
+  createMany?: Prisma.UserCreateManyDepartmentInputEnvelope
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+}
+
+export type UserUpdateManyWithoutDepartmentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDepartmentInput, Prisma.UserUncheckedCreateWithoutDepartmentInput> | Prisma.UserCreateWithoutDepartmentInput[] | Prisma.UserUncheckedCreateWithoutDepartmentInput[]
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDepartmentInput | Prisma.UserCreateOrConnectWithoutDepartmentInput[]
+  upsert?: Prisma.UserUpsertWithWhereUniqueWithoutDepartmentInput | Prisma.UserUpsertWithWhereUniqueWithoutDepartmentInput[]
+  createMany?: Prisma.UserCreateManyDepartmentInputEnvelope
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  update?: Prisma.UserUpdateWithWhereUniqueWithoutDepartmentInput | Prisma.UserUpdateWithWhereUniqueWithoutDepartmentInput[]
+  updateMany?: Prisma.UserUpdateManyWithWhereWithoutDepartmentInput | Prisma.UserUpdateManyWithWhereWithoutDepartmentInput[]
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[]
+}
+
+export type UserUncheckedUpdateManyWithoutDepartmentNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutDepartmentInput, Prisma.UserUncheckedCreateWithoutDepartmentInput> | Prisma.UserCreateWithoutDepartmentInput[] | Prisma.UserUncheckedCreateWithoutDepartmentInput[]
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutDepartmentInput | Prisma.UserCreateOrConnectWithoutDepartmentInput[]
+  upsert?: Prisma.UserUpsertWithWhereUniqueWithoutDepartmentInput | Prisma.UserUpsertWithWhereUniqueWithoutDepartmentInput[]
+  createMany?: Prisma.UserCreateManyDepartmentInputEnvelope
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[]
+  update?: Prisma.UserUpdateWithWhereUniqueWithoutDepartmentInput | Prisma.UserUpdateWithWhereUniqueWithoutDepartmentInput[]
+  updateMany?: Prisma.UserUpdateManyWithWhereWithoutDepartmentInput | Prisma.UserUpdateManyWithWhereWithoutDepartmentInput[]
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[]
+}
+
 export type UserCreateWithoutVehiclesInput = {
   email: string
   phoneNo?: string | null
@@ -556,10 +646,11 @@ export type UserCreateWithoutVehiclesInput = {
   firstName?: string | null
   lastName?: string | null
   role?: string
-  department?: string | null
+  imgUrl?: string | null
   isDeleted?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  department?: Prisma.DepartmentCreateNestedOneWithoutUsersInput
   attendances?: Prisma.AttendanceCreateNestedManyWithoutUserInput
 }
 
@@ -571,7 +662,8 @@ export type UserUncheckedCreateWithoutVehiclesInput = {
   firstName?: string | null
   lastName?: string | null
   role?: string
-  department?: string | null
+  imgUrl?: string | null
+  departmentId?: number | null
   isDeleted?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -601,10 +693,11 @@ export type UserUpdateWithoutVehiclesInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.StringFieldUpdateOperationsInput | string
-  department?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  department?: Prisma.DepartmentUpdateOneWithoutUsersNestedInput
   attendances?: Prisma.AttendanceUpdateManyWithoutUserNestedInput
 }
 
@@ -616,7 +709,8 @@ export type UserUncheckedUpdateWithoutVehiclesInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.StringFieldUpdateOperationsInput | string
-  department?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  departmentId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -630,10 +724,11 @@ export type UserCreateWithoutAttendancesInput = {
   firstName?: string | null
   lastName?: string | null
   role?: string
-  department?: string | null
+  imgUrl?: string | null
   isDeleted?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  department?: Prisma.DepartmentCreateNestedOneWithoutUsersInput
   vehicles?: Prisma.VehicleCreateNestedManyWithoutUserInput
 }
 
@@ -645,7 +740,8 @@ export type UserUncheckedCreateWithoutAttendancesInput = {
   firstName?: string | null
   lastName?: string | null
   role?: string
-  department?: string | null
+  imgUrl?: string | null
+  departmentId?: number | null
   isDeleted?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -675,10 +771,11 @@ export type UserUpdateWithoutAttendancesInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.StringFieldUpdateOperationsInput | string
-  department?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  department?: Prisma.DepartmentUpdateOneWithoutUsersNestedInput
   vehicles?: Prisma.VehicleUpdateManyWithoutUserNestedInput
 }
 
@@ -690,11 +787,146 @@ export type UserUncheckedUpdateWithoutAttendancesInput = {
   firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   role?: Prisma.StringFieldUpdateOperationsInput | string
-  department?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  departmentId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   vehicles?: Prisma.VehicleUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutDepartmentInput = {
+  email: string
+  phoneNo?: string | null
+  password: string
+  firstName?: string | null
+  lastName?: string | null
+  role?: string
+  imgUrl?: string | null
+  isDeleted?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  vehicles?: Prisma.VehicleCreateNestedManyWithoutUserInput
+  attendances?: Prisma.AttendanceCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutDepartmentInput = {
+  id?: number
+  email: string
+  phoneNo?: string | null
+  password: string
+  firstName?: string | null
+  lastName?: string | null
+  role?: string
+  imgUrl?: string | null
+  isDeleted?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  vehicles?: Prisma.VehicleUncheckedCreateNestedManyWithoutUserInput
+  attendances?: Prisma.AttendanceUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutDepartmentInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutDepartmentInput, Prisma.UserUncheckedCreateWithoutDepartmentInput>
+}
+
+export type UserCreateManyDepartmentInputEnvelope = {
+  data: Prisma.UserCreateManyDepartmentInput | Prisma.UserCreateManyDepartmentInput[]
+  skipDuplicates?: boolean
+}
+
+export type UserUpsertWithWhereUniqueWithoutDepartmentInput = {
+  where: Prisma.UserWhereUniqueInput
+  update: Prisma.XOR<Prisma.UserUpdateWithoutDepartmentInput, Prisma.UserUncheckedUpdateWithoutDepartmentInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutDepartmentInput, Prisma.UserUncheckedCreateWithoutDepartmentInput>
+}
+
+export type UserUpdateWithWhereUniqueWithoutDepartmentInput = {
+  where: Prisma.UserWhereUniqueInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutDepartmentInput, Prisma.UserUncheckedUpdateWithoutDepartmentInput>
+}
+
+export type UserUpdateManyWithWhereWithoutDepartmentInput = {
+  where: Prisma.UserScalarWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateManyMutationInput, Prisma.UserUncheckedUpdateManyWithoutDepartmentInput>
+}
+
+export type UserScalarWhereInput = {
+  AND?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[]
+  OR?: Prisma.UserScalarWhereInput[]
+  NOT?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[]
+  id?: Prisma.IntFilter<"User"> | number
+  email?: Prisma.StringFilter<"User"> | string
+  phoneNo?: Prisma.StringNullableFilter<"User"> | string | null
+  password?: Prisma.StringFilter<"User"> | string
+  firstName?: Prisma.StringNullableFilter<"User"> | string | null
+  lastName?: Prisma.StringNullableFilter<"User"> | string | null
+  role?: Prisma.StringFilter<"User"> | string
+  imgUrl?: Prisma.StringNullableFilter<"User"> | string | null
+  departmentId?: Prisma.IntNullableFilter<"User"> | number | null
+  isDeleted?: Prisma.BoolFilter<"User"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
+}
+
+export type UserCreateManyDepartmentInput = {
+  id?: number
+  email: string
+  phoneNo?: string | null
+  password: string
+  firstName?: string | null
+  lastName?: string | null
+  role?: string
+  imgUrl?: string | null
+  isDeleted?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type UserUpdateWithoutDepartmentInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phoneNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  vehicles?: Prisma.VehicleUpdateManyWithoutUserNestedInput
+  attendances?: Prisma.AttendanceUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutDepartmentInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phoneNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  vehicles?: Prisma.VehicleUncheckedUpdateManyWithoutUserNestedInput
+  attendances?: Prisma.AttendanceUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateManyWithoutDepartmentInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phoneNo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  imgUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -745,10 +977,12 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   firstName?: boolean
   lastName?: boolean
   role?: boolean
-  department?: boolean
+  imgUrl?: boolean
+  departmentId?: boolean
   isDeleted?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  department?: boolean | Prisma.User$departmentArgs<ExtArgs>
   vehicles?: boolean | Prisma.User$vehiclesArgs<ExtArgs>
   attendances?: boolean | Prisma.User$attendancesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -762,10 +996,12 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   firstName?: boolean
   lastName?: boolean
   role?: boolean
-  department?: boolean
+  imgUrl?: boolean
+  departmentId?: boolean
   isDeleted?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  department?: boolean | Prisma.User$departmentArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -776,10 +1012,12 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   firstName?: boolean
   lastName?: boolean
   role?: boolean
-  department?: boolean
+  imgUrl?: boolean
+  departmentId?: boolean
   isDeleted?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  department?: boolean | Prisma.User$departmentArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectScalar = {
@@ -790,24 +1028,31 @@ export type UserSelectScalar = {
   firstName?: boolean
   lastName?: boolean
   role?: boolean
-  department?: boolean
+  imgUrl?: boolean
+  departmentId?: boolean
   isDeleted?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "phoneNo" | "password" | "firstName" | "lastName" | "role" | "department" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "phoneNo" | "password" | "firstName" | "lastName" | "role" | "imgUrl" | "departmentId" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  department?: boolean | Prisma.User$departmentArgs<ExtArgs>
   vehicles?: boolean | Prisma.User$vehiclesArgs<ExtArgs>
   attendances?: boolean | Prisma.User$attendancesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
-export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
-export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  department?: boolean | Prisma.User$departmentArgs<ExtArgs>
+}
+export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  department?: boolean | Prisma.User$departmentArgs<ExtArgs>
+}
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
+    department: Prisma.$DepartmentPayload<ExtArgs> | null
     vehicles: Prisma.$VehiclePayload<ExtArgs>[]
     attendances: Prisma.$AttendancePayload<ExtArgs>[]
   }
@@ -819,7 +1064,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     firstName: string | null
     lastName: string | null
     role: string
-    department: string | null
+    imgUrl: string | null
+    departmentId: number | null
     isDeleted: boolean
     createdAt: Date
     updatedAt: Date
@@ -1217,6 +1463,7 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  department<T extends Prisma.User$departmentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$departmentArgs<ExtArgs>>): Prisma.Prisma__DepartmentClient<runtime.Types.Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   vehicles<T extends Prisma.User$vehiclesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$vehiclesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   attendances<T extends Prisma.User$attendancesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$attendancesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AttendancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1255,7 +1502,8 @@ export interface UserFieldRefs {
   readonly firstName: Prisma.FieldRef<"User", 'String'>
   readonly lastName: Prisma.FieldRef<"User", 'String'>
   readonly role: Prisma.FieldRef<"User", 'String'>
-  readonly department: Prisma.FieldRef<"User", 'String'>
+  readonly imgUrl: Prisma.FieldRef<"User", 'String'>
+  readonly departmentId: Prisma.FieldRef<"User", 'Int'>
   readonly isDeleted: Prisma.FieldRef<"User", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
@@ -1508,6 +1756,10 @@ export type UserCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions
    */
   data: Prisma.UserCreateManyInput | Prisma.UserCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1578,6 +1830,10 @@ export type UserUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions
    * Limit how many Users to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1644,6 +1900,25 @@ export type UserDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Limit how many Users to delete.
    */
   limit?: number
+}
+
+/**
+ * User.department
+ */
+export type User$departmentArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Department
+   */
+  select?: Prisma.DepartmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Department
+   */
+  omit?: Prisma.DepartmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DepartmentInclude<ExtArgs> | null
+  where?: Prisma.DepartmentWhereInput
 }
 
 /**

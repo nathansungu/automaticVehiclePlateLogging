@@ -43,7 +43,6 @@ export type UnregisteredVehicleMinAggregateOutputType = {
   plateNo: string | null
   vehicleType: string | null
   color: string | null
-  ocrPlate: string | null
   confidenceScore: number | null
   entryTime: Date | null
   gateId: number | null
@@ -56,7 +55,6 @@ export type UnregisteredVehicleMaxAggregateOutputType = {
   plateNo: string | null
   vehicleType: string | null
   color: string | null
-  ocrPlate: string | null
   confidenceScore: number | null
   entryTime: Date | null
   gateId: number | null
@@ -69,7 +67,6 @@ export type UnregisteredVehicleCountAggregateOutputType = {
   plateNo: number
   vehicleType: number
   color: number
-  ocrPlate: number
   confidenceScore: number
   entryTime: number
   gateId: number
@@ -96,7 +93,6 @@ export type UnregisteredVehicleMinAggregateInputType = {
   plateNo?: true
   vehicleType?: true
   color?: true
-  ocrPlate?: true
   confidenceScore?: true
   entryTime?: true
   gateId?: true
@@ -109,7 +105,6 @@ export type UnregisteredVehicleMaxAggregateInputType = {
   plateNo?: true
   vehicleType?: true
   color?: true
-  ocrPlate?: true
   confidenceScore?: true
   entryTime?: true
   gateId?: true
@@ -122,7 +117,6 @@ export type UnregisteredVehicleCountAggregateInputType = {
   plateNo?: true
   vehicleType?: true
   color?: true
-  ocrPlate?: true
   confidenceScore?: true
   entryTime?: true
   gateId?: true
@@ -220,9 +214,8 @@ export type UnregisteredVehicleGroupByArgs<ExtArgs extends runtime.Types.Extensi
 export type UnregisteredVehicleGroupByOutputType = {
   id: number
   plateNo: string
-  vehicleType: string
+  vehicleType: string | null
   color: string | null
-  ocrPlate: string
   confidenceScore: number
   entryTime: Date
   gateId: number | null
@@ -256,9 +249,8 @@ export type UnregisteredVehicleWhereInput = {
   NOT?: Prisma.UnregisteredVehicleWhereInput | Prisma.UnregisteredVehicleWhereInput[]
   id?: Prisma.IntFilter<"UnregisteredVehicle"> | number
   plateNo?: Prisma.StringFilter<"UnregisteredVehicle"> | string
-  vehicleType?: Prisma.StringFilter<"UnregisteredVehicle"> | string
+  vehicleType?: Prisma.StringNullableFilter<"UnregisteredVehicle"> | string | null
   color?: Prisma.StringNullableFilter<"UnregisteredVehicle"> | string | null
-  ocrPlate?: Prisma.StringFilter<"UnregisteredVehicle"> | string
   confidenceScore?: Prisma.FloatFilter<"UnregisteredVehicle"> | number
   entryTime?: Prisma.DateTimeFilter<"UnregisteredVehicle"> | Date | string
   gateId?: Prisma.IntNullableFilter<"UnregisteredVehicle"> | number | null
@@ -269,9 +261,8 @@ export type UnregisteredVehicleWhereInput = {
 export type UnregisteredVehicleOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   plateNo?: Prisma.SortOrder
-  vehicleType?: Prisma.SortOrder
+  vehicleType?: Prisma.SortOrderInput | Prisma.SortOrder
   color?: Prisma.SortOrderInput | Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrder
   confidenceScore?: Prisma.SortOrder
   entryTime?: Prisma.SortOrder
   gateId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -285,9 +276,8 @@ export type UnregisteredVehicleWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UnregisteredVehicleWhereInput[]
   NOT?: Prisma.UnregisteredVehicleWhereInput | Prisma.UnregisteredVehicleWhereInput[]
   plateNo?: Prisma.StringFilter<"UnregisteredVehicle"> | string
-  vehicleType?: Prisma.StringFilter<"UnregisteredVehicle"> | string
+  vehicleType?: Prisma.StringNullableFilter<"UnregisteredVehicle"> | string | null
   color?: Prisma.StringNullableFilter<"UnregisteredVehicle"> | string | null
-  ocrPlate?: Prisma.StringFilter<"UnregisteredVehicle"> | string
   confidenceScore?: Prisma.FloatFilter<"UnregisteredVehicle"> | number
   entryTime?: Prisma.DateTimeFilter<"UnregisteredVehicle"> | Date | string
   gateId?: Prisma.IntNullableFilter<"UnregisteredVehicle"> | number | null
@@ -298,9 +288,8 @@ export type UnregisteredVehicleWhereUniqueInput = Prisma.AtLeast<{
 export type UnregisteredVehicleOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   plateNo?: Prisma.SortOrder
-  vehicleType?: Prisma.SortOrder
+  vehicleType?: Prisma.SortOrderInput | Prisma.SortOrder
   color?: Prisma.SortOrderInput | Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrder
   confidenceScore?: Prisma.SortOrder
   entryTime?: Prisma.SortOrder
   gateId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -319,9 +308,8 @@ export type UnregisteredVehicleScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UnregisteredVehicleScalarWhereWithAggregatesInput | Prisma.UnregisteredVehicleScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"UnregisteredVehicle"> | number
   plateNo?: Prisma.StringWithAggregatesFilter<"UnregisteredVehicle"> | string
-  vehicleType?: Prisma.StringWithAggregatesFilter<"UnregisteredVehicle"> | string
+  vehicleType?: Prisma.StringNullableWithAggregatesFilter<"UnregisteredVehicle"> | string | null
   color?: Prisma.StringNullableWithAggregatesFilter<"UnregisteredVehicle"> | string | null
-  ocrPlate?: Prisma.StringWithAggregatesFilter<"UnregisteredVehicle"> | string
   confidenceScore?: Prisma.FloatWithAggregatesFilter<"UnregisteredVehicle"> | number
   entryTime?: Prisma.DateTimeWithAggregatesFilter<"UnregisteredVehicle"> | Date | string
   gateId?: Prisma.IntNullableWithAggregatesFilter<"UnregisteredVehicle"> | number | null
@@ -331,9 +319,8 @@ export type UnregisteredVehicleScalarWhereWithAggregatesInput = {
 
 export type UnregisteredVehicleCreateInput = {
   plateNo: string
-  vehicleType: string
+  vehicleType?: string | null
   color?: string | null
-  ocrPlate: string
   confidenceScore: number
   entryTime?: Date | string
   gateId?: number | null
@@ -344,9 +331,8 @@ export type UnregisteredVehicleCreateInput = {
 export type UnregisteredVehicleUncheckedCreateInput = {
   id?: number
   plateNo: string
-  vehicleType: string
+  vehicleType?: string | null
   color?: string | null
-  ocrPlate: string
   confidenceScore: number
   entryTime?: Date | string
   gateId?: number | null
@@ -356,9 +342,8 @@ export type UnregisteredVehicleUncheckedCreateInput = {
 
 export type UnregisteredVehicleUpdateInput = {
   plateNo?: Prisma.StringFieldUpdateOperationsInput | string
-  vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
+  vehicleType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ocrPlate?: Prisma.StringFieldUpdateOperationsInput | string
   confidenceScore?: Prisma.FloatFieldUpdateOperationsInput | number
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -369,9 +354,8 @@ export type UnregisteredVehicleUpdateInput = {
 export type UnregisteredVehicleUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plateNo?: Prisma.StringFieldUpdateOperationsInput | string
-  vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
+  vehicleType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ocrPlate?: Prisma.StringFieldUpdateOperationsInput | string
   confidenceScore?: Prisma.FloatFieldUpdateOperationsInput | number
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -382,9 +366,8 @@ export type UnregisteredVehicleUncheckedUpdateInput = {
 export type UnregisteredVehicleCreateManyInput = {
   id?: number
   plateNo: string
-  vehicleType: string
+  vehicleType?: string | null
   color?: string | null
-  ocrPlate: string
   confidenceScore: number
   entryTime?: Date | string
   gateId?: number | null
@@ -394,9 +377,8 @@ export type UnregisteredVehicleCreateManyInput = {
 
 export type UnregisteredVehicleUpdateManyMutationInput = {
   plateNo?: Prisma.StringFieldUpdateOperationsInput | string
-  vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
+  vehicleType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ocrPlate?: Prisma.StringFieldUpdateOperationsInput | string
   confidenceScore?: Prisma.FloatFieldUpdateOperationsInput | number
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -407,9 +389,8 @@ export type UnregisteredVehicleUpdateManyMutationInput = {
 export type UnregisteredVehicleUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   plateNo?: Prisma.StringFieldUpdateOperationsInput | string
-  vehicleType?: Prisma.StringFieldUpdateOperationsInput | string
+  vehicleType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   color?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  ocrPlate?: Prisma.StringFieldUpdateOperationsInput | string
   confidenceScore?: Prisma.FloatFieldUpdateOperationsInput | number
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -422,7 +403,6 @@ export type UnregisteredVehicleCountOrderByAggregateInput = {
   plateNo?: Prisma.SortOrder
   vehicleType?: Prisma.SortOrder
   color?: Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrder
   confidenceScore?: Prisma.SortOrder
   entryTime?: Prisma.SortOrder
   gateId?: Prisma.SortOrder
@@ -441,7 +421,6 @@ export type UnregisteredVehicleMaxOrderByAggregateInput = {
   plateNo?: Prisma.SortOrder
   vehicleType?: Prisma.SortOrder
   color?: Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrder
   confidenceScore?: Prisma.SortOrder
   entryTime?: Prisma.SortOrder
   gateId?: Prisma.SortOrder
@@ -454,7 +433,6 @@ export type UnregisteredVehicleMinOrderByAggregateInput = {
   plateNo?: Prisma.SortOrder
   vehicleType?: Prisma.SortOrder
   color?: Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrder
   confidenceScore?: Prisma.SortOrder
   entryTime?: Prisma.SortOrder
   gateId?: Prisma.SortOrder
@@ -483,7 +461,6 @@ export type UnregisteredVehicleSelect<ExtArgs extends runtime.Types.Extensions.I
   plateNo?: boolean
   vehicleType?: boolean
   color?: boolean
-  ocrPlate?: boolean
   confidenceScore?: boolean
   entryTime?: boolean
   gateId?: boolean
@@ -496,7 +473,6 @@ export type UnregisteredVehicleSelectCreateManyAndReturn<ExtArgs extends runtime
   plateNo?: boolean
   vehicleType?: boolean
   color?: boolean
-  ocrPlate?: boolean
   confidenceScore?: boolean
   entryTime?: boolean
   gateId?: boolean
@@ -509,7 +485,6 @@ export type UnregisteredVehicleSelectUpdateManyAndReturn<ExtArgs extends runtime
   plateNo?: boolean
   vehicleType?: boolean
   color?: boolean
-  ocrPlate?: boolean
   confidenceScore?: boolean
   entryTime?: boolean
   gateId?: boolean
@@ -522,7 +497,6 @@ export type UnregisteredVehicleSelectScalar = {
   plateNo?: boolean
   vehicleType?: boolean
   color?: boolean
-  ocrPlate?: boolean
   confidenceScore?: boolean
   entryTime?: boolean
   gateId?: boolean
@@ -530,7 +504,7 @@ export type UnregisteredVehicleSelectScalar = {
   updatedAt?: boolean
 }
 
-export type UnregisteredVehicleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "plateNo" | "vehicleType" | "color" | "ocrPlate" | "confidenceScore" | "entryTime" | "gateId" | "createdAt" | "updatedAt", ExtArgs["result"]["unregisteredVehicle"]>
+export type UnregisteredVehicleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "plateNo" | "vehicleType" | "color" | "confidenceScore" | "entryTime" | "gateId" | "createdAt" | "updatedAt", ExtArgs["result"]["unregisteredVehicle"]>
 
 export type $UnregisteredVehiclePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "UnregisteredVehicle"
@@ -538,9 +512,8 @@ export type $UnregisteredVehiclePayload<ExtArgs extends runtime.Types.Extensions
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     plateNo: string
-    vehicleType: string
+    vehicleType: string | null
     color: string | null
-    ocrPlate: string
     confidenceScore: number
     entryTime: Date
     gateId: number | null
@@ -973,7 +946,6 @@ export interface UnregisteredVehicleFieldRefs {
   readonly plateNo: Prisma.FieldRef<"UnregisteredVehicle", 'String'>
   readonly vehicleType: Prisma.FieldRef<"UnregisteredVehicle", 'String'>
   readonly color: Prisma.FieldRef<"UnregisteredVehicle", 'String'>
-  readonly ocrPlate: Prisma.FieldRef<"UnregisteredVehicle", 'String'>
   readonly confidenceScore: Prisma.FieldRef<"UnregisteredVehicle", 'Float'>
   readonly entryTime: Prisma.FieldRef<"UnregisteredVehicle", 'DateTime'>
   readonly gateId: Prisma.FieldRef<"UnregisteredVehicle", 'Int'>

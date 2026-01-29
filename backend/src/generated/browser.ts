@@ -42,3 +42,8 @@ export type SystemConfig = Prisma.SystemConfigModel
  * 
  */
 export type UnregisteredVehicle = Prisma.UnregisteredVehicleModel
+/**
+ * Model Department
+ * 
+ */
+export type Department = Prisma.DepartmentModel

@@ -49,7 +49,6 @@ export type AttendanceMinAggregateOutputType = {
   entryTime: Date | null
   exitTime: Date | null
   gateId: number | null
-  ocrPlate: string | null
   confidenceScore: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -62,7 +61,6 @@ export type AttendanceMaxAggregateOutputType = {
   entryTime: Date | null
   exitTime: Date | null
   gateId: number | null
-  ocrPlate: string | null
   confidenceScore: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -75,7 +73,6 @@ export type AttendanceCountAggregateOutputType = {
   entryTime: number
   exitTime: number
   gateId: number
-  ocrPlate: number
   confidenceScore: number
   createdAt: number
   updatedAt: number
@@ -106,7 +103,6 @@ export type AttendanceMinAggregateInputType = {
   entryTime?: true
   exitTime?: true
   gateId?: true
-  ocrPlate?: true
   confidenceScore?: true
   createdAt?: true
   updatedAt?: true
@@ -119,7 +115,6 @@ export type AttendanceMaxAggregateInputType = {
   entryTime?: true
   exitTime?: true
   gateId?: true
-  ocrPlate?: true
   confidenceScore?: true
   createdAt?: true
   updatedAt?: true
@@ -132,7 +127,6 @@ export type AttendanceCountAggregateInputType = {
   entryTime?: true
   exitTime?: true
   gateId?: true
-  ocrPlate?: true
   confidenceScore?: true
   createdAt?: true
   updatedAt?: true
@@ -232,7 +226,6 @@ export type AttendanceGroupByOutputType = {
   entryTime: Date
   exitTime: Date | null
   gateId: number | null
-  ocrPlate: string | null
   confidenceScore: number | null
   createdAt: Date
   updatedAt: Date
@@ -268,7 +261,6 @@ export type AttendanceWhereInput = {
   entryTime?: Prisma.DateTimeFilter<"Attendance"> | Date | string
   exitTime?: Prisma.DateTimeNullableFilter<"Attendance"> | Date | string | null
   gateId?: Prisma.IntNullableFilter<"Attendance"> | number | null
-  ocrPlate?: Prisma.StringNullableFilter<"Attendance"> | string | null
   confidenceScore?: Prisma.FloatNullableFilter<"Attendance"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Attendance"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Attendance"> | Date | string
@@ -283,7 +275,6 @@ export type AttendanceOrderByWithRelationInput = {
   entryTime?: Prisma.SortOrder
   exitTime?: Prisma.SortOrderInput | Prisma.SortOrder
   gateId?: Prisma.SortOrderInput | Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrderInput | Prisma.SortOrder
   confidenceScore?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -301,7 +292,6 @@ export type AttendanceWhereUniqueInput = Prisma.AtLeast<{
   entryTime?: Prisma.DateTimeFilter<"Attendance"> | Date | string
   exitTime?: Prisma.DateTimeNullableFilter<"Attendance"> | Date | string | null
   gateId?: Prisma.IntNullableFilter<"Attendance"> | number | null
-  ocrPlate?: Prisma.StringNullableFilter<"Attendance"> | string | null
   confidenceScore?: Prisma.FloatNullableFilter<"Attendance"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Attendance"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Attendance"> | Date | string
@@ -316,7 +306,6 @@ export type AttendanceOrderByWithAggregationInput = {
   entryTime?: Prisma.SortOrder
   exitTime?: Prisma.SortOrderInput | Prisma.SortOrder
   gateId?: Prisma.SortOrderInput | Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrderInput | Prisma.SortOrder
   confidenceScore?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -337,7 +326,6 @@ export type AttendanceScalarWhereWithAggregatesInput = {
   entryTime?: Prisma.DateTimeWithAggregatesFilter<"Attendance"> | Date | string
   exitTime?: Prisma.DateTimeNullableWithAggregatesFilter<"Attendance"> | Date | string | null
   gateId?: Prisma.IntNullableWithAggregatesFilter<"Attendance"> | number | null
-  ocrPlate?: Prisma.StringNullableWithAggregatesFilter<"Attendance"> | string | null
   confidenceScore?: Prisma.FloatNullableWithAggregatesFilter<"Attendance"> | number | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Attendance"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Attendance"> | Date | string
@@ -347,7 +335,6 @@ export type AttendanceCreateInput = {
   entryTime?: Date | string
   exitTime?: Date | string | null
   gateId?: number | null
-  ocrPlate?: string | null
   confidenceScore?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -362,7 +349,6 @@ export type AttendanceUncheckedCreateInput = {
   entryTime?: Date | string
   exitTime?: Date | string | null
   gateId?: number | null
-  ocrPlate?: string | null
   confidenceScore?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -372,7 +358,6 @@ export type AttendanceUpdateInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -387,7 +372,6 @@ export type AttendanceUncheckedUpdateInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -400,7 +384,6 @@ export type AttendanceCreateManyInput = {
   entryTime?: Date | string
   exitTime?: Date | string | null
   gateId?: number | null
-  ocrPlate?: string | null
   confidenceScore?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -410,7 +393,6 @@ export type AttendanceUpdateManyMutationInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -423,7 +405,6 @@ export type AttendanceUncheckedUpdateManyInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -446,7 +427,6 @@ export type AttendanceCountOrderByAggregateInput = {
   entryTime?: Prisma.SortOrder
   exitTime?: Prisma.SortOrder
   gateId?: Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrder
   confidenceScore?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -467,7 +447,6 @@ export type AttendanceMaxOrderByAggregateInput = {
   entryTime?: Prisma.SortOrder
   exitTime?: Prisma.SortOrder
   gateId?: Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrder
   confidenceScore?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -480,7 +459,6 @@ export type AttendanceMinOrderByAggregateInput = {
   entryTime?: Prisma.SortOrder
   exitTime?: Prisma.SortOrder
   gateId?: Prisma.SortOrder
-  ocrPlate?: Prisma.SortOrder
   confidenceScore?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -582,14 +560,6 @@ export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
 }
 
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type NullableFloatFieldUpdateOperationsInput = {
   set?: number | null
   increment?: number
@@ -602,7 +572,6 @@ export type AttendanceCreateWithoutUserInput = {
   entryTime?: Date | string
   exitTime?: Date | string | null
   gateId?: number | null
-  ocrPlate?: string | null
   confidenceScore?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -615,7 +584,6 @@ export type AttendanceUncheckedCreateWithoutUserInput = {
   entryTime?: Date | string
   exitTime?: Date | string | null
   gateId?: number | null
-  ocrPlate?: string | null
   confidenceScore?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -657,7 +625,6 @@ export type AttendanceScalarWhereInput = {
   entryTime?: Prisma.DateTimeFilter<"Attendance"> | Date | string
   exitTime?: Prisma.DateTimeNullableFilter<"Attendance"> | Date | string | null
   gateId?: Prisma.IntNullableFilter<"Attendance"> | number | null
-  ocrPlate?: Prisma.StringNullableFilter<"Attendance"> | string | null
   confidenceScore?: Prisma.FloatNullableFilter<"Attendance"> | number | null
   createdAt?: Prisma.DateTimeFilter<"Attendance"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Attendance"> | Date | string
@@ -667,7 +634,6 @@ export type AttendanceCreateWithoutVehicleInput = {
   entryTime?: Date | string
   exitTime?: Date | string | null
   gateId?: number | null
-  ocrPlate?: string | null
   confidenceScore?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -680,7 +646,6 @@ export type AttendanceUncheckedCreateWithoutVehicleInput = {
   entryTime?: Date | string
   exitTime?: Date | string | null
   gateId?: number | null
-  ocrPlate?: string | null
   confidenceScore?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -718,7 +683,6 @@ export type AttendanceCreateManyUserInput = {
   entryTime?: Date | string
   exitTime?: Date | string | null
   gateId?: number | null
-  ocrPlate?: string | null
   confidenceScore?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -728,7 +692,6 @@ export type AttendanceUpdateWithoutUserInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -741,7 +704,6 @@ export type AttendanceUncheckedUpdateWithoutUserInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -753,7 +715,6 @@ export type AttendanceUncheckedUpdateManyWithoutUserInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -765,7 +726,6 @@ export type AttendanceCreateManyVehicleInput = {
   entryTime?: Date | string
   exitTime?: Date | string | null
   gateId?: number | null
-  ocrPlate?: string | null
   confidenceScore?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -775,7 +735,6 @@ export type AttendanceUpdateWithoutVehicleInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -788,7 +747,6 @@ export type AttendanceUncheckedUpdateWithoutVehicleInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -800,7 +758,6 @@ export type AttendanceUncheckedUpdateManyWithoutVehicleInput = {
   entryTime?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   exitTime?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   gateId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  ocrPlate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   confidenceScore?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -815,7 +772,6 @@ export type AttendanceSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   entryTime?: boolean
   exitTime?: boolean
   gateId?: boolean
-  ocrPlate?: boolean
   confidenceScore?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -830,7 +786,6 @@ export type AttendanceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   entryTime?: boolean
   exitTime?: boolean
   gateId?: boolean
-  ocrPlate?: boolean
   confidenceScore?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -845,7 +800,6 @@ export type AttendanceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   entryTime?: boolean
   exitTime?: boolean
   gateId?: boolean
-  ocrPlate?: boolean
   confidenceScore?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -860,13 +814,12 @@ export type AttendanceSelectScalar = {
   entryTime?: boolean
   exitTime?: boolean
   gateId?: boolean
-  ocrPlate?: boolean
   confidenceScore?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type AttendanceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "vehicleId" | "userId" | "entryTime" | "exitTime" | "gateId" | "ocrPlate" | "confidenceScore" | "createdAt" | "updatedAt", ExtArgs["result"]["attendance"]>
+export type AttendanceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "vehicleId" | "userId" | "entryTime" | "exitTime" | "gateId" | "confidenceScore" | "createdAt" | "updatedAt", ExtArgs["result"]["attendance"]>
 export type AttendanceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   vehicle?: boolean | Prisma.VehicleDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -893,7 +846,6 @@ export type $AttendancePayload<ExtArgs extends runtime.Types.Extensions.Internal
     entryTime: Date
     exitTime: Date | null
     gateId: number | null
-    ocrPlate: string | null
     confidenceScore: number | null
     createdAt: Date
     updatedAt: Date
@@ -1328,7 +1280,6 @@ export interface AttendanceFieldRefs {
   readonly entryTime: Prisma.FieldRef<"Attendance", 'DateTime'>
   readonly exitTime: Prisma.FieldRef<"Attendance", 'DateTime'>
   readonly gateId: Prisma.FieldRef<"Attendance", 'Int'>
-  readonly ocrPlate: Prisma.FieldRef<"Attendance", 'String'>
   readonly confidenceScore: Prisma.FieldRef<"Attendance", 'Float'>
   readonly createdAt: Prisma.FieldRef<"Attendance", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Attendance", 'DateTime'>
