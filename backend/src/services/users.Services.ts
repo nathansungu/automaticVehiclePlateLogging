@@ -10,7 +10,7 @@ export const registerUserService = async (userData: {
   password: string;
   phoneNumber?: string;
   imgUrl?: string;
-  department?: string;
+  departmentId?: number;
 }) => {
   const { password, ...others } = userData;
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -130,7 +130,7 @@ export const updateUserService = async (
       email?: string;
       phoneNumber?: string;
       imgUrl?: string;
-      department?: string;
+      departmentId?: number;
     }
 ) => {
   const user = await prisma.user.findUnique({

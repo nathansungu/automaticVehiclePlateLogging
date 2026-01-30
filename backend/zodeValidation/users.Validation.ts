@@ -5,7 +5,7 @@ export const registerUserValidation = z.object({
   email: z.email().max(100),
   password: z.string().min(8).max(100),
   phoneNumber: z.string().min(10).max(15).optional(),
-  department: z.string().min(3).max(100).optional(),
+  departmentId: z.number().min(1).optional(),
 });
 
 export const loginUserValidation = z.object({
@@ -17,6 +17,7 @@ export const updateUserProfileValidation = z.object({
   name: z.string().min(1).max(100).optional(),
   phoneNumber: z.string().min(10).max(15).optional(),
   imgUrl: z.string().url().optional(),
+  departmentId: z.number().min(1).optional(),
 });
 
 export const changePasswordValidation = z.object({

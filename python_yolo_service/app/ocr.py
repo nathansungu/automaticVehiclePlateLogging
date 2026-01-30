@@ -32,7 +32,7 @@ def read_plate(plate_img):
     best = max(results, key=lambda x: x[2])
     raw_text = best[1]
     ocr_confidence = float(best[2])
-
+    print("OCR raw text:", raw_text, "Confidence:")
     cleaned_text = clean_plate_text(raw_text)
 
     return {
