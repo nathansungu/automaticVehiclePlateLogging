@@ -25,14 +25,16 @@ def read_plate(plate_img):
     processed = preprocess_image(plate_img)
     results = reader.readtext(processed)
 
-    if not results:
+    if not results or len(results) == 0:
         return None
 
     # Get most confident OCR result
     best = max(results, key=lambda x: x[2])
     raw_text = best[1]
     ocr_confidence = float(best[2])
-    print("OCR raw text:", raw_text, "Confidence:")
+    if ocr_confidence < 0.2:
+        return None
+    print("OCR raw text:", raw_text, "Confidence:", ocr_confidence)
     cleaned_text = clean_plate_text(raw_text)
 
     return {

@@ -9,7 +9,7 @@ export const recordAttendanceService = async () => {
   try {
     const response = await axios.get("http://localhost:5000/detect-plate");
     console.log("YOLO response:", response.data);
-    const { plateNumber, confidenceScore} = response.data;
+    const { plate_text:plateNumber, confidenceScore} = response.data;
     console.log("Detected plate number:", plateNumber);
     if (!plateNumber) return;
 
