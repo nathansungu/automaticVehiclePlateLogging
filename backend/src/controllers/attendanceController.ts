@@ -1,5 +1,5 @@
 import { asyncHandler } from "../utility/asyncHandler";
-import {getAllAttendanceRecordsService, getAttendanceByDepartmentService} from "../services/attendance.Service";
+import {getAllAttendanceRecordsService, getAttendanceByDepartmentService, recordAttendanceServiceManual} from "../services/attendance.Service";
 import { Request, Response } from "express";
 import { getAllAttendanceRecordsValidation, getAttendanceByDepartmentValidation } from "../../zodeValidation/attendance.Validation";
 
@@ -20,3 +20,13 @@ export const getAttendanceByDepartmentController = asyncHandler(async (req: Requ
         attendanceRecords
     });
 });
+
+//add attendance manually
+ export const addManualAttendanceController = asyncHandler(async (req: Request, res: Response) => {
+     const { vehicleId, confidenceScore } = req.body;
+     
+     const attendanceRecord = await recordAttendanceServiceManual(vehicleId, confidenceScore);
+    res.status(201).json({
+        attendanceRecord
+    });
+ });

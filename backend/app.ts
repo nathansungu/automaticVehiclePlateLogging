@@ -2,13 +2,13 @@ import expres from "express";
 import cookieparser from "cookie-parser";
 import cors from "cors";
 import router from "./src/routes/index";
-import { recordAttendanceService } from "./src/services/attendance.Service";
+import { recordAttendanceServiceYolo } from "./src/services/attendance.Service";
 
 const app = expres();
 app.use(expres.json());
 app.use(cookieparser());
 app.use(cors());
-setInterval(recordAttendanceService, 3000);
+setInterval(recordAttendanceServiceYolo, 3000);
 
 app.use("/api", router);
 

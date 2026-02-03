@@ -5,11 +5,11 @@ import axios from "axios";
 const recentDetections = new Map<string, number>();
 const COOLDOWN = 60 * 1000;
 
-export const recordAttendanceService = async () => {
+export const recordAttendanceServiceYolo = async () => {
   try {
     const response = await axios.get("http://localhost:5000/detect-plate");
     console.log("YOLO response:", response.data);
-    const { plate_text:plateNumber, confidenceScore} = response.data;
+    const { plate_text: plateNumber, confidenceScore } = response.data;
     console.log("Detected plate number:", plateNumber);
     if (!plateNumber) return;
 
@@ -48,12 +48,38 @@ export const recordAttendanceService = async () => {
         confidenceScore: confidenceScore,
       },
     });
-
-    console.log("Attendance recorded:", plateNumber);
   } catch (err) {
-    console.error("Error recording attendance:", err);
     return Promise.reject(new Error("Error recording attendance"));
   }
+};
+//record attendande manually
+export const recordAttendanceServiceManual = async (
+  vehicleId: number,
+  confidenceScore: number,
+) => {
+  const isRegistered = await prisma.vehicle.findUnique({
+    where: { id: vehicleId },
+  });
+  if (!isRegistered){
+    await prisma.unregisteredVehicle.create({
+      data: {
+        plateNo: "Unknown",
+        confidenceScore: confidenceScore,
+      },
+    });
+    throw new Error("Vehicle not registered");
+  }
+  const attendanceRecord = await prisma.attendance.create({
+
+    data: {
+      vehicleId,
+      userId:isRegistered.userId,
+      confidenceScore,
+    },
+  });
+  return attendanceRecord;
+  if (!attendanceRecord) throw new Error("Error recording manual attendance");
+  return attendanceRecord;
 };
 
 //get all attendance records
